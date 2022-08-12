@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   before do
     @author = User.new(name: 'Mateo', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Peru.',
-      postscounter: 0)
+                       postscounter: 0)
     @author.save
     @post = Post.new(author: @author, title: 'Title', text: 'Text', commentscounter: 0, likescounter: 0)
     @post.save
