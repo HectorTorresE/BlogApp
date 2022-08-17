@@ -90,6 +90,7 @@ GEM
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    erb-formatter (0.3.0)
     erubi (1.11.0)
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
@@ -227,6 +228,8 @@ GEM
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.4)
+    tailwindcss-rails (2.0.12-x64-mingw-ucrt)
+      railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.3.0)
     turbo-rails (1.1.1)
@@ -262,6 +265,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  erb-formatter
   ffi
   importmap-rails
   jbuilder
@@ -274,6 +278,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  tailwindcss-rails
   turbo-rails
   tzinfo-data
   web-console
