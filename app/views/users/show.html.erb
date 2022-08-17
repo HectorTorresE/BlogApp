@@ -1,1 +1,26 @@
-<h1>details of a given user</h1>
+<div class="flex my-3 rounded-md border">
+  <img src="<%= @user.photo %>" class="w-1/5 rounded-l-md"/>
+  <div class="w-4/5 px-2 pt-4 flex flex-col">
+    <h2 class="text-2xl font-bold"><%= link_to @user.name, @user %></h2>
+    <p class="text-sm text-right w-full font-bold">Number of Posts:
+      <%= @user.posts.count %></p>
+  </div>
+</div>
+<div class="rounded-md border border-zinc-300 p-2 bg-white">
+  <h3 class="font-semibold">Bio</h3>
+  <p class="text-sm"><%= @user.bio %></p>
+</div>
+<h2 class="font-bold mx-2 my-6 text-lg">
+  Most recent posts by <%= @user.name %>:
+</h2>
+<% @user.three_recent_post.each do |post| %>
+  <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60">
+    <h2 class="font-semibold text-md underline underline-offset-2"><%= link_to post.title, [@user, post] %></h2>
+    <p class="text-sm truncate my-2"><%= post.text %></p>
+    <p class="text-right text-sm font-bold">Comments:
+      <%= post.commentscounter || 0 %>
+      Likes:
+      <%= post.likescounter || 0 %></p>
+  </div>
+<% end %>
+<%= link_to 'See all posts', user_posts_path(@user), class: "border bg-indigo-500 p-2 font-bold rounded-md" %>
