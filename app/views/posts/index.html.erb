@@ -1,14 +1,14 @@
 <div class="flex my-3 rounded-md border border-zinc-300">
   <img src="<%= @user.photo %>" class="w-1/5 rounded-l-md"/>
   <div class="w-4/5 px-2 pt-4 flex flex-col">
-    <h2 class="text-2xl font-bold"><%= link_to @user.name, @user %></h2>
+    <h2 class="text-2xl font-bold text-sky-600 hover:text-sky-700"><%= link_to @user.name, @user %></h2>
     <p class="text-sm text-right w-full font-bold">Number of Posts:
       <%= @user.posts.count %></p>
   </div>
 </div>
 <% @posts.each do |post| %>
   <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60">
-    <h2 class="font-semibold text-md  underline underline-offset-2"><%= link_to post.title, [@user, post] %></h2>
+    <h2 class="font-semibold text-md text-sky-600 hover:text-sky-700 underline underline-offset-2"><%= link_to post.title, [@user, post] %></h2>
     <p class="text-sm truncate my-2"><%= post.text %></p>
     <p class="text-right text-sm font-bold">Comments:
       <%= post.commentscounter %>

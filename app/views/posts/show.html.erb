@@ -17,3 +17,16 @@
     </ul>
   <% end %>
 </div>
+<% if !@is_liked %>
+  <%= form_with url: user_post_likes_url(@post.author, @post) do |form| %>
+    <%= button_tag class: "text-4xl fixed bottom-5 right-5 text-red-200" do  %>
+      ❤️
+    <% end %>
+  <% end %>
+<% else%>
+  <%= form_with url: user_post_like_url(@post.author, @post), method: :delete do |form| %>
+    <%= button_tag class: "text-4xl fixed bottom-5 right-5 text-red-500" do  %>
+      ❤️
+    <% end %>
+  <% end %>
+<% end %>
