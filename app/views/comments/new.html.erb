@@ -1,0 +1,6 @@
+<h1 class="text-xl text-center font-bold">Add comment</h1>
+<%= form_with model: [:user, :post, @comment], html: {class: "text-2xl flex flex-col"} do |form| %>
+  <%= form.label :text, class: "font-bold mx-2 my-4 text-lg"  %>
+  <%= form.text_area :text, rows: 10, class: "rounded-md border" %>
+  <%= form.submit class: "border p-2 bg-sky-500 hover:bg-sky-600 my-2 font-bold rounded-md" %>
+<% end %>

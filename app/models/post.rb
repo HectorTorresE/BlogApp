@@ -13,4 +13,8 @@ class Post < ApplicationRecord
   def five_recent_comments
     comments.where(post: self).order(created_at: :desc).limit(5)
   end
+
+  def liked?(user)
+    likes.where(author: user).any?
+  end
 end
