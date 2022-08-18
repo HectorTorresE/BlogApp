@@ -5,9 +5,9 @@
     Likes:
     <%= @post.likescounter || 0 %></p>
   <p class="my-4"><%= @post.text %></p>
-  <% unless @post.commentscounter == 0 %>
-    <hr>
-    <h4 class="font-semibold">Comments:</h4>
+  <hr>
+  <h4 class="font-semibold mt-4">Comments:</h4>
+  <p class="text-right my-2"><%= link_to 'Add Comment', new_user_post_comment_path(@post.author, @post), class: "border px-2 py-1 bg-sky-500 hover:bg-sky-600 font-bold rounded-md" %></p>
     <ul class="my-3">
       <% @post.comments.each do |comment| %>
         <li class="text-sm my-2">
@@ -15,7 +15,6 @@
         </li>
       <% end %>
     </ul>
-  <% end %>
 </div>
 <% if !@is_liked %>
   <%= form_with url: user_post_likes_url(@post.author, @post) do |form| %>
