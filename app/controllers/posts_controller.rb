@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 
   def create
     permitted = params.require(:post).permit(:title, :text)
-    @post = Post.new(author: current_user, text: permitted[:text], title: permitted[:title], commentscounter: 0, likescounter: 0)
+    @post = Post.new(author: current_user, text: permitted[:text], title: permitted[:title], commentscounter: 0,
+                     likescounter: 0)
     if @post.valid? && @post.save
       redirect_to user_post_path(current_user, @post)
     else
