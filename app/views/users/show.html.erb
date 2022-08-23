@@ -15,7 +15,7 @@
   <%= @user.name %>:
 </h2>
 <% @user.three_recent_post.each do |post| %>
-  <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60">
+  <div class="rounded-md border border-zinc-300 p-2 mb-4 bg-white/60 post_info">
     <h2 class="font-semibold text-md underline underline-offset-2 text-sky-600 hover:text-sky-700"><%= link_to post.title, [@user, post] %></h2>
     <p class="text-sm truncate my-2"><%= post.text %></p>
     <p class="text-right text-sm font-bold">Comments:

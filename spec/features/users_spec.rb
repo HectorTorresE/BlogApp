@@ -6,9 +6,9 @@ RSpec.describe 'Users', type: :system do
       config.run_server = false
     end
     session = Capybara::Session.new(:selenium)
-    @first_user = User.create(name: 'Tom',
+    @first_user = User.create(name: 'Jhon',
                               photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', postscounter: 0)
-    @second_user = User.create(name: 'Lilly',
+    @second_user = User.create(name: 'Michel',
                                photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', postscounter: 0)
     @first_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', commentscounter: 0, likescounter: 0,
                               author: @first_user)
@@ -37,7 +37,7 @@ RSpec.describe 'Users', type: :system do
   it 'should redirected to that user\'s show page, when the username is clicked.' do
     visit('http://localhost:3000/')
     click_on 'Tom'
-    expect(page).to have_current_path(user_path(@first_user))
+    expect(page).to have_current_path('http://localhost:3000/users/1')
   end
 
   it 'show user\'s name' do
@@ -73,16 +73,15 @@ RSpec.describe 'Users', type: :system do
 
   it 'redirects me to the post\'s show page' do
     visit('http://localhost:3000/users/1')
-    post = find_link(href: "/users/#{@first_user.id}/posts/#{@third_post.id}")
+    post = find_link(href: '/users/1/posts/3')
     post.click
-    expect(page).to have_current_path(user_post_path(user_id: @first_user.id, id: @third_post.id))
+    expect(page).to have_current_path(user_post_path(user_id: 1, id: 3))
   end
 
   it 'redirects to the post\'s index page' do
     visit('http://localhost:3000/users/1')
     button = page.find_link('See all posts')
     button.click
-    expect(page).to have_current_path(user_posts_path(user_id: @first_user.id))
+    expect(page).to have_current_path('http://localhost:3000/users/1/posts')
   end
 end
-
