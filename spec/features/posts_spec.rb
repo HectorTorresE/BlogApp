@@ -5,16 +5,17 @@ RSpec.describe 'Posts', type: :system do
     Capybara.configure do |config|
       config.run_server = false
     end
-    session = Capybara::Session.new(:selenium)
     @first_user = User.create(name: 'Tom',
-                              photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', postscounter: 0)
+                              photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png',
+                              bio: 'Lorem ipsum dolor sit amet', postscounter: 0)
     @second_user = User.create(name: 'Lilly',
-                               photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', postscounter: 0)
-    @first_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', commentscounter: 3, likescounter: 0,
+                               photo: 'https://cdn.discordapp.com/attachments/924502144810360833/1009475393054576671/e.png',
+                               bio: 'Lorem ipsum dolor sit amet', postscounter: 0)
+    @first_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet', commentscounter: 3, likescounter: 0,
                               author: @first_user)
-    @second_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', commentscounter: 0, likescounter: 0,
+    @second_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet', commentscounter: 0, likescounter: 0,
                                author: @first_user)
-    @third_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', commentscounter: 0, likescounter: 0,
+    @third_post = Post.create(title: 'Title', text: 'Lorem ipsum dolor sit amet', commentscounter: 0, likescounter: 0,
                               author: @first_user)
     @first_comment = Comment.create(post: @first_post, author: @first_user, text: 'Hi Tom first!')
     @second_comment = Comment.create(post: @first_post, author: @first_user, text: 'Hi Tom second')
@@ -92,7 +93,7 @@ RSpec.describe 'Posts', type: :system do
 
   it 'See all the post body' do
     visit('http://localhost:3000/users/1/posts/1')
-    expect(page).to have_content('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+    expect(page).to have_content('Lorem ipsum dolor sit amet')
   end
 
   it 'See the username of each commentor.' do
