@@ -51,7 +51,6 @@ RSpec.describe 'Posts', type: :system do
     expect(comment).to have_content(@first_comment.text)
   end
 
-  
   it 'See how many comments a post has.' do
     visit('http://localhost:3000/users/1/posts')
     post = page.find_all('.post_info').first
@@ -80,7 +79,6 @@ RSpec.describe 'Posts', type: :system do
     visit('http://localhost:3000/users/1/posts/1')
     expect(page).to have_content("by #{@first_user.name}")
   end
-
 
   it 'See how many comments it has.' do
     visit('http://localhost:3000/users/1/posts/1')
