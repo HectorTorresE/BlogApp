@@ -1,0 +1,35 @@
+
+<h1 class="text-xl text-center font-bold">Sign up</h1>
+<div class="grid place-items-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, class: "font-bold mx-2 my-4 text-lg" %><br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded-md border" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name, class: "font-bold mx-2 my-4 text-lg" %><br/>
+      <%= f.text_field :name, class: "rounded-md border" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, class: "font-bold mx-2 my-4 text-lg" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>
+          characters minimum)</em>
+      <% end %><br/>
+      <%= f.password_field :password, autocomplete: "new-password", class: "rounded-md border" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, class: "font-bold mx-2 my-4 text-lg" %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded-md border" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "text-base border p-2 bg-sky-500 hover:bg-sky-600 my-2 font-bold rounded-md" %>
+    </div>
+  <% end %>
+</div>
