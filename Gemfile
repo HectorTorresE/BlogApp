@@ -85,3 +85,5 @@ gem 'erb-formatter'
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'bullet', group: 'development'
+
+gem 'devise'
